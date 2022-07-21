@@ -7,8 +7,9 @@
   "private": true,
   "scripts": {
     "start": "cross-env SERVE=true webpack serve",
-    "build": "webpack",
-    "build:production": "webpack --mode=production",
+    "build": "cross-env NODE_ENV=production webpack",
+    "build:production": "cross-env NODE_ENV=production webpack --mode=production",
+    "deploy": "aws --endpoint-url=https://storage.yandexcloud.net s3 cp --recursive dist/ s3://labirint.zhilin.app/",
     "clean": "rimraf dist"
   },
   "devDependencies": {

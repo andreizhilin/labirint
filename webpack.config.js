@@ -38,6 +38,16 @@ module.exports = {
     hot: true,
   },
 
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@game': path.resolve(__dirname, 'src/game'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@services': path.resolve(__dirname, 'src/services'),
+    },
+  },
+
   module: {
   	rules: [
       { test: /\.(html)$/, use: ['html-loader'] },

@@ -1,7 +1,26 @@
 .steps-row {
   display: flex;
+  margin: 32px 0 0;
 
-  &__step {
-    padding-left: 8px;
+  .steps-mobile-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  
+    &__step {
+      padding-left: 12px;
+  
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .step__image {
+    width: 48px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
   }
 }

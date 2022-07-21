@@ -24,8 +24,6 @@ export function Cell({ position }) {
         'cell_selected': gameService.arePositionsEqual(position, selectedCellPosition),
       })}
       onClick={handleCellClick}
-    >
-      {position[0]} {position[1]}
-    </div>
+    />
   )
 }

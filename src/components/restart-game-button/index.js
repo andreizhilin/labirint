@@ -14,6 +14,6 @@ export function RestartGameButton() {
   };
 
   return (
-    <button onClick={handleNewGameButtonClick}>Новая игра</button>
+    <button className='restart-game-button' onClick={handleNewGameButtonClick}>Новая игра</button>
   )
 }

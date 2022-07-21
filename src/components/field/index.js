@@ -13,9 +13,9 @@ export function Field() {
     for (let i = 0; i < settings.rowCount; i++) {
       const cells = [];
       for (let j = 0; j < settings.columnCount; j++) {
-        cells.push(<Cell position={[i, j]} />)
+        cells.push(<Cell key={j} position={[i, j]} />)
       }
-      rows.push(<div className='field__row'>{cells}</div>)
+      rows.push(<div key={i} className='field__row'>{cells}</div>)
     }
     return rows;
   }

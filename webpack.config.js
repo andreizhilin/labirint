@@ -14,7 +14,7 @@ const plugins = [
     favicon: './public/favicon.ico',
   }),
   new MiniCssExtractPlugin({
-    filename: '[name].[contenthash].css',
+    filename: isProduction() ? '[name].[contenthash].css' : '[name].css',
   }),
 ];
 
@@ -41,6 +41,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
+      '@assets': path.resolve(__dirname, 'src/assets'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@game': path.resolve(__dirname, 'src/game'),
       '@store': path.resolve(__dirname, 'src/store'),

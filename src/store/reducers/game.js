@@ -11,7 +11,7 @@ const initialState = {
 
 export const game = (state = initialState, action) => {
   switch (action.type) {
-    case [actions.GameActionNames.StartNewGame]:
+    case actions.GameActionNames.StartNewGame:
       const startPosition = gameService.getRandomPosition(action.settings);
       const steps = gameService.getRandomSteps(startPosition, action.settings);
 
@@ -22,14 +22,18 @@ export const game = (state = initialState, action) => {
         selectedCellPosition: null,
       };
 
-    case [actions.GameActionNames.SelectCell]:
+    case actions.GameActionNames.SelectCell:
+      if (state.status !== GameStatus.Started) {
+        return state;
+      }
+
       const finalPosition = state.steps.at(-1);
-      const isSuccess = action.position[0] === finalPosition[0] && action.position[1] === finalPosition[1];
+      const isSuccess = gameService.arePositionsEqual(action.position, finalPosition);
 
       return {
         ...state,
         status: isSuccess ? GameStatus.Success : GameStatus.Failed,
-        selectedCellPosition: finalPosition,
+        selectedCellPosition: action.position,
       };
     
     default:

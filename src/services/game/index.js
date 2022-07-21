@@ -16,3 +16,17 @@ export function getStepDirection(from, to) {
 
   return null;
 }
+
+export function getDirectionsFromSteps(startPosition, steps) {
+  const directions = [];
+  let currentPosition = startPosition;
+  for (let i = 0; i < steps.length; i++) {
+    directions.push(getStepDirection(currentPosition, steps[i]));
+    currentPosition = steps[i];
+  }
+  return directions;
+}
+
+export function arePositionsEqual(pos1, pos2) {
+  return pos1?.[0] === pos2?.[0] && pos1?.[1] === pos2?.[1];
+}

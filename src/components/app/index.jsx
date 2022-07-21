@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Game } from '@components';
+
 export function App() {
   return (
-    <div>Лабиринт</div>
+    <Game />
   )
 }
